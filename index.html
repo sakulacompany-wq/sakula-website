@@ -7,11 +7,19 @@
   <meta name="description" content="Sakula General Trading is a PSIRA-registered, Level 1 B-BBEE security company in Kimberley providing manned guarding, CCTV monitoring and site security for government, solar plants and construction sites across the Northern Cape." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=5" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css?v=6" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🛡️</text></svg>" />
 </head>
 <body>
+
+  <!-- Ambient animated background -->
+  <div class="aurora" aria-hidden="true">
+    <span class="aurora-blob b1"></span>
+    <span class="aurora-blob b2"></span>
+    <span class="aurora-blob b3"></span>
+    <span class="aurora-grid"></span>
+  </div>
 
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
@@ -22,24 +30,21 @@
         <span class="brand-mark">
           <svg viewBox="0 0 48 48" width="34" height="34" aria-hidden="true">
             <defs>
-              <linearGradient id="silverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#ffffff"/>
-                <stop offset="45%" stop-color="#c7cfda"/>
-                <stop offset="100%" stop-color="#8792a3"/>
+              <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#2563eb"/>
+                <stop offset="100%" stop-color="#06b6d4"/>
               </linearGradient>
             </defs>
-            <circle cx="23" cy="27" r="15" fill="url(#silverGrad)"/>
-            <g fill="#0a0b0e">
+            <circle cx="23" cy="27" r="15" fill="url(#brandGrad)"/>
+            <g fill="#f6f8fc">
               <rect x="4" y="16" width="26" height="3.4" rx="1.2" transform="rotate(-38 17 18)"/>
               <rect x="6" y="22" width="26" height="3.4" rx="1.2" transform="rotate(-38 19 24)"/>
               <rect x="8" y="28" width="26" height="3.4" rx="1.2" transform="rotate(-38 21 30)"/>
             </g>
-            <path d="M36 6 L40 4 L30 34 L26 28 Z" fill="url(#silverGrad)"/>
+            <path d="M36 6 L40 4 L30 34 L26 28 Z" fill="url(#brandGrad)"/>
           </svg>
         </span>
-        <span class="brand-text">
-          <strong>Sakula</strong> General Trading
-        </span>
+        <span class="brand-text"><strong>Sakula</strong> General Trading</span>
       </a>
 
       <nav class="site-nav" id="siteNav">
@@ -59,42 +64,48 @@
 
   <!-- ======= Hero ======= -->
   <section class="hero">
-    <div class="hero-bg" id="heroBg" aria-hidden="true"></div>
-    <div class="hero-overlay" aria-hidden="true"></div>
     <div class="container hero-inner">
-      <div class="hero-content" data-reveal>
-        <p class="eyebrow">PSIRA-Registered Security Provider — Northern Cape</p>
-        <h1>Protecting What <span class="accent">Matters Most</span></h1>
-        <p class="lead">
-          Sakula General Trading is a 100% black-owned South African security company
-          providing manned guarding, CCTV monitoring and site protection for government
-          facilities, solar plants and construction sites across the Northern Cape and beyond.
-        </p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary">Request a Quote</a>
-          <a href="#track-record" class="btn btn-ghost">Our Track Record</a>
-        </div>
-        <ul class="hero-stats">
-          <li><strong>2015</strong><span>Established</span></li>
-          <li><strong><span data-count="15">0</span>+</strong><span>Government &amp; Private Sites</span></li>
-          <li><strong><span data-count="7">0</span></strong><span>Solar Plants Secured</span></li>
-          <li><strong>24/7</strong><span>Guarding &amp; Monitoring</span></li>
-        </ul>
+      <p class="hero-badge" data-reveal>
+        <span class="badge-dot"></span>
+        PSIRA-Registered Security Provider · Est. 2015 · Northern Cape
+      </p>
+      <h1 class="hero-title" data-reveal>
+        <span class="grad">Sakula</span> General Trading
+      </h1>
+      <p class="lead" data-reveal>
+        Protecting what matters most. A 100% black-owned South African security company
+        trusted by government, renewable energy and industry — manned guarding, CCTV
+        monitoring and site protection, delivered with excellence.
+      </p>
+      <div class="hero-actions" data-reveal>
+        <a href="#contact" class="btn btn-primary btn-lg">Request a Quote
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#track-record" class="btn btn-ghost btn-lg">Our Track Record</a>
       </div>
-      <div class="hero-visual" data-reveal>
-        <img src="images/team-solar-plant.png" alt="Sakula security team on duty at a solar plant in the Northern Cape" class="hero-photo" />
-      </div>
+
+      <ul class="hero-stats glass" data-reveal>
+        <li><strong>2015</strong><span>Established</span></li>
+        <li><strong><span data-count="15">0</span>+</strong><span>Gov &amp; Private Sites</span></li>
+        <li><strong><span data-count="7">0</span></strong><span>Solar Plants Secured</span></li>
+        <li><strong>24/7</strong><span>Guarding &amp; Monitoring</span></li>
+      </ul>
+
+      <figure class="hero-showcase" data-reveal>
+        <img src="images/team-solar-plant.png" alt="Sakula security team on duty at a solar plant in the Northern Cape" />
+        <figcaption class="glass">Our guarding team on duty — Northern Cape solar plant</figcaption>
+      </figure>
     </div>
   </section>
 
-  <!-- ======= Compliance strip ======= -->
-  <section class="cred-strip" aria-label="Accreditations">
-    <div class="container cred-inner" data-reveal-group>
-      <div class="cred-item" data-reveal><strong>PSIRA</strong><span>Reg No. 3200738</span></div>
-      <div class="cred-item" data-reveal><strong>Level 1 B-BBEE</strong><span>135% Procurement Recognition</span></div>
-      <div class="cred-item" data-reveal><strong>CIPC Registered</strong><span>2015/332655/07</span></div>
-      <div class="cred-item" data-reveal><strong>VAT Registered</strong><span>4310277779</span></div>
-      <div class="cred-item" data-reveal><strong>CIDB Graded</strong><span>5CE · 6ME · 6GB</span></div>
+  <!-- ======= Trust bar ======= -->
+  <section class="trust" aria-label="Accreditations">
+    <div class="container trust-inner" data-reveal-group>
+      <div class="trust-chip glass" data-reveal><strong>PSIRA</strong><span>Reg No. 3200738</span></div>
+      <div class="trust-chip glass" data-reveal><strong>Level 1 B-BBEE</strong><span>135% Recognition</span></div>
+      <div class="trust-chip glass" data-reveal><strong>CIPC</strong><span>2015/332655/07</span></div>
+      <div class="trust-chip glass" data-reveal><strong>VAT</strong><span>4310277779</span></div>
+      <div class="trust-chip glass" data-reveal><strong>CIDB</strong><span>5CE · 6ME · 6GB</span></div>
     </div>
   </section>
 
@@ -103,12 +114,12 @@
     <div class="container">
       <div class="section-head" data-reveal>
         <p class="eyebrow">What We Do</p>
-        <h2>Security Services You Can Rely On</h2>
+        <h2>Security services you can <span class="grad">rely on</span></h2>
         <p class="section-sub">Trusted by National Public Works and private industry across the Northern Cape.</p>
       </div>
 
       <div class="grid services-grid" data-reveal-group>
-        <article class="card" data-reveal>
+        <article class="card glass" data-reveal>
           <div class="card-icon">
             <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3.5"/><path d="M5 21a7 7 0 0 1 14 0"/></svg>
           </div>
@@ -116,7 +127,7 @@
           <p>Trained, vetted and uniformed security officers protecting government facilities, business premises and residential sites — day and night.</p>
         </article>
 
-        <article class="card" data-reveal>
+        <article class="card glass" data-reveal>
           <div class="card-icon">
             <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8l14-4 1.5 5L4 13 2 8z"/><path d="M14 9.5l6-1.5v4"/><circle cx="7" cy="17" r="2.5"/><path d="M7 14.5V13"/></svg>
           </div>
@@ -124,7 +135,7 @@
           <p>On-site control rooms with trained operators monitoring camera feeds around the clock, keeping incident registers and escalating fast.</p>
         </article>
 
-        <article class="card" data-reveal>
+        <article class="card glass" data-reveal>
           <div class="card-icon">
             <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="10" width="18" height="9" rx="1"/><path d="M7 10V7a5 5 0 0 1 10 0v3"/><path d="M3 14.5h18"/><path d="M7.5 10v9M12 10v9M16.5 10v9"/></svg>
           </div>
@@ -132,7 +143,7 @@
           <p>Specialised protection of solar farms and critical infrastructure — currently securing seven plants including Greefspan, Herbert, Jasper and Lesedi.</p>
         </article>
 
-        <article class="card" data-reveal>
+        <article class="card glass" data-reveal>
           <div class="card-icon">
             <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/><path d="M9 10h.01M15 10h.01M9 14h.01M15 14h.01"/></svg>
           </div>
@@ -140,7 +151,7 @@
           <p>Guarding services for construction sites, factories and plant yards — protecting materials, machinery and personnel from theft and vandalism.</p>
         </article>
 
-        <article class="card" data-reveal>
+        <article class="card glass" data-reveal>
           <div class="card-icon">
             <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg>
           </div>
@@ -148,7 +159,7 @@
           <p>Vehicle-based patrols and rapid response with an operational fleet of long-wheelbase vehicles and light commercial bakkies.</p>
         </article>
 
-        <article class="card" data-reveal>
+        <article class="card glass" data-reveal>
           <div class="card-icon">
             <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M4 20V8l6-4v16M14 20V10l6 3v7"/><path d="M7 10h.01M7 13h.01M7 16h.01"/></svg>
           </div>
@@ -160,11 +171,11 @@
   </section>
 
   <!-- ======= About ======= -->
-  <section class="section section-alt" id="about">
+  <section class="section" id="about">
     <div class="container split">
       <div data-reveal>
         <p class="eyebrow">About Us</p>
-        <h2>A Proudly South African Company</h2>
+        <h2>A proudly <span class="grad">South African</span> company</h2>
         <p>
           Sakula General Trading is a 100% black-owned company registered with the CIPC
           on 25 September 2015 and headquartered in Kutlwanong, Kimberley. Led by Chief
@@ -185,22 +196,22 @@
         <a href="#contact" class="btn btn-primary">Talk to Our Team</a>
       </div>
       <ul class="feature-list" data-reveal-group>
-        <li data-reveal>
+        <li class="glass" data-reveal>
           <strong>Our Vision</strong>
           To be a disciplined, determined and successful entity driven by professional, motivated
           and well-capacitated personnel willing to go the extra mile for our clientele.
         </li>
-        <li data-reveal>
+        <li class="glass" data-reveal>
           <strong>Our Mission</strong>
           To offer excellent service in each of our professional disciplines, in accordance with
           statutory practices, codes of conduct and integrity.
         </li>
-        <li data-reveal>
+        <li class="glass" data-reveal>
           <strong>Empowerment</strong>
           A Level 1 B-BBEE contributor taking a leading role in the recruitment and training of
           historically disadvantaged individuals.
         </li>
-        <li data-reveal>
+        <li class="glass" data-reveal>
           <strong>Hands-On Leadership</strong>
           Directors remain in control of key functions on every project, backed by experienced
           managers in security, project management and health &amp; safety.
@@ -214,12 +225,12 @@
     <div class="container">
       <div class="section-head" data-reveal>
         <p class="eyebrow">Track Record</p>
-        <h2>Proven on Government &amp; Private Contracts</h2>
+        <h2>Proven on government &amp; <span class="grad">private contracts</span></h2>
         <p class="section-sub">A history of completed and current security contracts across the Northern Cape and Free State.</p>
       </div>
 
       <div class="grid record-grid" data-reveal-group>
-        <article class="record-card" data-reveal>
+        <article class="record-card glass" data-reveal>
           <h3>National Public Works <span class="record-tag">Government</span></h3>
           <p>Repeat provider of security services for the Department of Public Works (Northern Cape Region) since 2022, protecting facilities in:</p>
           <ul class="record-sites">
@@ -229,7 +240,7 @@
           </ul>
         </article>
 
-        <article class="record-card" data-reveal>
+        <article class="record-card glass" data-reveal>
           <h3>Gransolar <span class="record-tag">Renewable Energy</span></h3>
           <p>Ongoing security for seven solar plants since January 2025:</p>
           <ul class="record-sites">
@@ -242,7 +253,7 @@
           </ul>
         </article>
 
-        <article class="record-card" data-reveal>
+        <article class="record-card glass" data-reveal>
           <h3>Private Sector <span class="record-tag">Industry</span></h3>
           <p>Long-standing guarding contracts for private clients:</p>
           <ul class="record-list">
@@ -256,11 +267,11 @@
   </section>
 
   <!-- ======= Team / gallery ======= -->
-  <section class="section section-alt" id="team">
+  <section class="section" id="team">
     <div class="container">
       <div class="section-head" data-reveal>
         <p class="eyebrow">Our Team</p>
-        <h2>Our People on Duty</h2>
+        <h2>Our people <span class="grad">on duty</span></h2>
         <p class="section-sub">Uniformed, trained and equipped — Sakula officers at work on real sites. Click a photo to enlarge.</p>
       </div>
       <div class="gallery" id="gallery" data-reveal-group>
@@ -290,12 +301,15 @@
 
   <!-- ======= CTA banner ======= -->
   <section class="cta-banner">
+    <div class="cta-glow" aria-hidden="true"></div>
     <div class="container cta-inner" data-reveal>
       <div>
         <h2>Need reliable security for your site?</h2>
         <p>From single premises to multi-town contracts — get a free, no-obligation quotation.</p>
       </div>
-      <a href="#contact" class="btn btn-light">Get Started</a>
+      <a href="#contact" class="btn btn-light btn-lg">Get Started
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
     </div>
   </section>
 
@@ -304,7 +318,7 @@
     <div class="container split">
       <div data-reveal>
         <p class="eyebrow">Contact</p>
-        <h2>Request a Quote</h2>
+        <h2>Request a <span class="grad">quote</span></h2>
         <p>Tell us about your site and requirements and we'll get back to you within one business day.</p>
         <ul class="contact-list">
           <li>
@@ -328,7 +342,7 @@
         </ul>
       </div>
 
-      <form class="contact-form" id="contactForm" novalidate data-reveal>
+      <form class="contact-form glass" id="contactForm" novalidate data-reveal>
         <div class="form-row">
           <label>
             Name
@@ -372,13 +386,13 @@
       <div class="footer-brand">
         <span class="brand-mark">
           <svg viewBox="0 0 48 48" width="26" height="26" aria-hidden="true">
-            <circle cx="23" cy="27" r="15" fill="url(#silverGrad)"/>
-            <g fill="#0a0b0e">
+            <circle cx="23" cy="27" r="15" fill="url(#brandGrad)"/>
+            <g fill="#f6f8fc">
               <rect x="4" y="16" width="26" height="3.4" rx="1.2" transform="rotate(-38 17 18)"/>
               <rect x="6" y="22" width="26" height="3.4" rx="1.2" transform="rotate(-38 19 24)"/>
               <rect x="8" y="28" width="26" height="3.4" rx="1.2" transform="rotate(-38 21 30)"/>
             </g>
-            <path d="M36 6 L40 4 L30 34 L26 28 Z" fill="url(#silverGrad)"/>
+            <path d="M36 6 L40 4 L30 34 L26 28 Z" fill="url(#brandGrad)"/>
           </svg>
         </span>
         <span><strong>Sakula</strong> General Trading</span>
@@ -407,6 +421,6 @@
 
   <button class="back-to-top" id="backToTop" aria-label="Back to top" hidden>&#8593;</button>
 
-  <script src="js/main.js?v=5"></script>
+  <script src="js/main.js?v=6"></script>
 </body>
 </html>

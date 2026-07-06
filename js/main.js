@@ -24,11 +24,10 @@ siteNav.addEventListener("click", (e) => {
   }
 });
 
-/* ============ Header elevation + scroll progress + back to top + parallax ============ */
+/* ============ Header elevation + scroll progress + back to top ============ */
 const header = document.querySelector(".site-header");
 const progressBar = document.getElementById("scrollProgress");
 const backToTop = document.getElementById("backToTop");
-const heroBg = document.getElementById("heroBg");
 
 function onScroll() {
   const y = window.scrollY;
@@ -38,10 +37,6 @@ function onScroll() {
   progressBar.style.width = max > 0 ? (y / max) * 100 + "%" : "0%";
 
   backToTop.hidden = y < 600;
-
-  if (heroBg && !prefersReducedMotion && y < window.innerHeight * 1.5) {
-    heroBg.style.transform = `translateY(${y * 0.25}px)`;
-  }
 }
 window.addEventListener("scroll", onScroll, { passive: true });
 onScroll();
@@ -125,12 +120,22 @@ if ("IntersectionObserver" in window) {
   });
 }
 
-/* ============ Card spotlight follows the mouse ============ */
+/* ============ Card spotlight + subtle 3D tilt ============ */
 document.querySelectorAll(".card, .record-card").forEach((card) => {
   card.addEventListener("mousemove", (e) => {
     const rect = card.getBoundingClientRect();
-    card.style.setProperty("--mx", e.clientX - rect.left + "px");
-    card.style.setProperty("--my", e.clientY - rect.top + "px");
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    card.style.setProperty("--mx", x + "px");
+    card.style.setProperty("--my", y + "px");
+
+    if (prefersReducedMotion) return;
+    const rx = ((y / rect.height) - 0.5) * -4;
+    const ry = ((x / rect.width) - 0.5) * 4;
+    card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px)`;
+  });
+  card.addEventListener("mouseleave", () => {
+    card.style.transform = "";
   });
 });
 
