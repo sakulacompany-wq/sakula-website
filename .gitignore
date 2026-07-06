@@ -1,0 +1,8 @@
+# Private company documents — never publish these
+*.pdf
+*.docx
+PDFS/
+
+# Local tooling and packaging
+.claude/
+sakula-website.zip
