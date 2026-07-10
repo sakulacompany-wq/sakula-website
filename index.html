@@ -7,18 +7,18 @@
   <meta name="description" content="Sakula General Trading is a PSIRA-registered, Level 1 B-BBEE security company in Kimberley providing manned guarding, CCTV monitoring and site security for government, solar plants and construction sites across the Northern Cape." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=6" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css?v=7" />
+  <meta name="theme-color" content="#faf8f3" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#10151f" media="(prefers-color-scheme: dark)" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🛡️</text></svg>" />
 </head>
 <body>
 
-  <!-- Ambient animated background -->
+  <!-- Ambient dawn-light background -->
   <div class="aurora" aria-hidden="true">
     <span class="aurora-blob b1"></span>
     <span class="aurora-blob b2"></span>
-    <span class="aurora-blob b3"></span>
-    <span class="aurora-grid"></span>
   </div>
 
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
@@ -31,17 +31,17 @@
           <svg viewBox="0 0 48 48" width="34" height="34" aria-hidden="true">
             <defs>
               <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#2563eb"/>
-                <stop offset="100%" stop-color="#06b6d4"/>
+                <stop offset="0%" stop-color="#2c4370"/>
+                <stop offset="100%" stop-color="#1d2b4a"/>
               </linearGradient>
             </defs>
             <circle cx="23" cy="27" r="15" fill="url(#brandGrad)"/>
-            <g fill="#f6f8fc">
+            <g fill="#faf8f3">
               <rect x="4" y="16" width="26" height="3.4" rx="1.2" transform="rotate(-38 17 18)"/>
               <rect x="6" y="22" width="26" height="3.4" rx="1.2" transform="rotate(-38 19 24)"/>
               <rect x="8" y="28" width="26" height="3.4" rx="1.2" transform="rotate(-38 21 30)"/>
             </g>
-            <path d="M36 6 L40 4 L30 34 L26 28 Z" fill="url(#brandGrad)"/>
+            <path d="M36 6 L40 4 L30 34 L26 28 Z" fill="#bd5f1d"/>
           </svg>
         </span>
         <span class="brand-text"><strong>Sakula</strong> General Trading</span>
@@ -65,35 +65,37 @@
   <!-- ======= Hero ======= -->
   <section class="hero">
     <div class="container hero-inner">
-      <p class="hero-badge" data-reveal>
-        <span class="badge-dot"></span>
-        PSIRA-Registered Security Provider · Est. 2015 · Northern Cape
-      </p>
-      <h1 class="hero-title" data-reveal>
-        <span class="grad">Sakula</span> General Trading
-      </h1>
-      <p class="lead" data-reveal>
-        Protecting what matters most. A 100% black-owned South African security company
-        trusted by government, renewable energy and industry — manned guarding, CCTV
-        monitoring and site protection, delivered with excellence.
-      </p>
-      <div class="hero-actions" data-reveal>
-        <a href="#contact" class="btn btn-primary btn-lg">Request a Quote
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a href="#track-record" class="btn btn-ghost btn-lg">Our Track Record</a>
+      <div class="hero-copy">
+        <p class="hero-badge" data-reveal>
+          <span class="badge-dot"></span>
+          PSIRA-Registered · Est. 2015 · Northern Cape
+        </p>
+        <h1 class="hero-title" data-reveal>
+          <span class="grad">Sakula</span><br />General Trading
+        </h1>
+        <p class="lead" data-reveal>
+          Protecting what matters most. A 100% black-owned South African security company
+          trusted by government, renewable energy and industry — manned guarding, CCTV
+          monitoring and site protection, delivered with excellence.
+        </p>
+        <div class="hero-actions" data-reveal>
+          <a href="#contact" class="btn btn-primary btn-lg">Request a Quote
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#track-record" class="btn btn-ghost btn-lg">Our Track Record</a>
+        </div>
+
+        <ul class="hero-stats" data-reveal>
+          <li><strong>2015</strong><span>Established</span></li>
+          <li><strong><span data-count="15">0</span>+</strong><span>Gov &amp; Private Sites</span></li>
+          <li><strong><span data-count="7">0</span></strong><span>Solar Plants Secured</span></li>
+          <li><strong>24/7</strong><span>Guarding &amp; Monitoring</span></li>
+        </ul>
       </div>
 
-      <ul class="hero-stats glass" data-reveal>
-        <li><strong>2015</strong><span>Established</span></li>
-        <li><strong><span data-count="15">0</span>+</strong><span>Gov &amp; Private Sites</span></li>
-        <li><strong><span data-count="7">0</span></strong><span>Solar Plants Secured</span></li>
-        <li><strong>24/7</strong><span>Guarding &amp; Monitoring</span></li>
-      </ul>
-
-      <figure class="hero-showcase" data-reveal>
-        <img src="images/team-solar-plant.png" alt="Sakula security team on duty at a solar plant in the Northern Cape" />
-        <figcaption class="glass">Our guarding team on duty — Northern Cape solar plant</figcaption>
+      <figure class="hero-media" data-reveal>
+        <img src="images/team-solar-plant.png" alt="Sakula security team on duty at dusk at a solar plant in the Northern Cape" />
+        <figcaption>Our guarding team on duty — Northern Cape solar plant</figcaption>
       </figure>
     </div>
   </section>
@@ -421,6 +423,6 @@
 
   <button class="back-to-top" id="backToTop" aria-label="Back to top" hidden>&#8593;</button>
 
-  <script src="js/main.js?v=6"></script>
+  <script src="js/main.js?v=7"></script>
 </body>
 </html>
