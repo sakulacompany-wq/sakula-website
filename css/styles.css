@@ -184,6 +184,10 @@ section { scroll-margin-top: 96px; }
   transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .js [data-reveal].revealed { opacity: 1; transform: none; }
+/* Elements whose transform is scroll-driven fade in only — the parallax
+   engine owns their transform, so don't transition it. */
+.js [data-reveal][data-parallax] { transform: none; }
+.js [data-reveal][data-parallax].revealed { transition: opacity 0.8s ease; }
 @media (prefers-reduced-motion: reduce) {
   .js [data-reveal] { opacity: 1; transform: none; transition: none; }
   html { scroll-behavior: auto; }
@@ -880,4 +884,294 @@ section { scroll-margin-top: 96px; }
   .hero-stats li { flex: 1 1 40%; }
   .cta-banner .cta-inner { padding: 2.4rem 1.8rem; }
   .lightbox-nav { display: none; }
+}
+
+/* ============================================================
+   Scroll story — the guard stands watch
+   ============================================================ */
+.story { height: 320vh; position: relative; }
+
+.story-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.8s ease;
+}
+.story-stage.s1 { background-color: rgba(44, 67, 112, 0.06); }
+.story-stage.s2 { background-color: rgba(189, 95, 29, 0.06); }
+
+.story-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3rem;
+  align-items: center;
+  width: 100%;
+}
+
+.story-steps { position: relative; min-height: 62vh; }
+
+.story-step {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  opacity: 0;
+  transform: translateY(44px);
+  transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+.story-step.active { opacity: 1; transform: none; pointer-events: auto; }
+.story-step h2 { margin-bottom: 0.9rem; font-size: clamp(2rem, 4.2vw, 3.1rem); }
+.story-step p { max-width: 32rem; font-size: 1.05rem; }
+
+.floater {
+  position: absolute;
+  width: 180px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-lift);
+  opacity: 0;
+  transform: translateY(70px) rotate(0deg) scale(0.9);
+  transition: opacity 0.7s ease 0.25s, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.25s;
+}
+.floater.f1 { right: 6%; top: 4%; }
+.floater.f2 { right: 22%; bottom: 2%; width: 200px; transition-delay: 0.4s; }
+.floater.f3 { right: 8%; bottom: 4%; width: 230px; }
+.story-step.active .floater.f1 { opacity: 1; transform: rotate(-7deg); }
+.story-step.active .floater.f2 { opacity: 1; transform: rotate(5deg); }
+.story-step.active .floater.f3 { opacity: 1; transform: rotate(-4deg); }
+
+.story-guard {
+  margin: 0;
+  justify-self: center;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.story-guard img {
+  width: min(340px, 82%);
+  display: block;
+  margin-inline: auto;
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-lift);
+  animation: guard-breathe 6.5s ease-in-out infinite;
+}
+@keyframes guard-breathe {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-8px) scale(1.012); }
+}
+.story-guard figcaption {
+  width: fit-content;
+  margin: -1.4rem auto 0;
+  position: relative;
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: #f5f2ea;
+  background: rgba(20, 27, 43, 0.82);
+  border: 1px solid rgba(245, 242, 234, 0.16);
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  box-shadow: var(--shadow-soft);
+}
+
+.story-dots {
+  position: absolute;
+  right: 1.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  gap: 0.65rem;
+}
+.story-dots .dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--line);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.story-dots .dot.active { background: var(--accent); transform: scale(1.35); }
+
+/* Static fallback: small screens and reduced motion get the story stacked */
+@media (max-width: 820px), (prefers-reduced-motion: reduce) {
+  .story { height: auto; }
+  .story-stage { position: static; height: auto; overflow: visible; padding: 4.5rem 0 2rem; }
+  .story-layout { grid-template-columns: 1fr; gap: 2.4rem; }
+  .story-steps { min-height: 0; display: grid; gap: 2.8rem; }
+  .story-step {
+    position: static;
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto;
+  }
+  .story-step .story-floaters { display: flex; gap: 0.9rem; margin-top: 1.2rem; flex-wrap: wrap; }
+  .floater {
+    position: static;
+    opacity: 1 !important;
+    transform: none !important;
+    width: 46% !important;
+    max-width: 220px;
+  }
+  .story-guard { opacity: 1 !important; transform: none !important; }
+  .story-guard img { animation: none; }
+  .story-dots { display: none; }
+}
+
+/* ============================================================
+   Construction division — CIDB scene
+   Deliberately single-theme: a night construction site.
+   ============================================================ */
+.construction {
+  position: relative;
+  margin-top: 4rem;
+  overflow: hidden;
+  background: linear-gradient(180deg, #121a2c 0%, #1a2440 55%, #1f2c4c 100%);
+}
+
+.hazard-stripe {
+  position: relative;
+  z-index: 2;
+  height: 12px;
+  background: repeating-linear-gradient(-45deg, #d9822b 0 18px, #131b2d 18px 36px);
+  opacity: 0.92;
+}
+
+.construction-sky { position: absolute; inset: 0; pointer-events: none; }
+
+.crane {
+  position: absolute;
+  width: min(340px, 42vw);
+  height: auto;
+  overflow: visible;
+}
+.crane-left { left: 1%; top: 46px; }
+.crane-right { right: 1%; top: 96px; opacity: 0.75; }
+.crane line, .crane rect { stroke: #4a5d85; }
+.cr-mast { stroke-width: 5; }
+.cr-arm { stroke-width: 4; }
+.cr-tie { stroke-width: 1.6; opacity: 0.8; }
+.cr-cable { stroke-width: 1.6; stroke-dasharray: 4 3; }
+.cr-load { fill: #d9822b; stroke: none; }
+.cr-light { fill: #ef9b52; animation: cr-blink 2.6s ease-in-out infinite; }
+.crane-right .cr-light { animation-delay: 1.2s; }
+@keyframes cr-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.15; }
+}
+.cr-arm-group {
+  transform-origin: 30px 20px;
+  animation: cr-swing 16s ease-in-out infinite alternate;
+}
+.cr-arm-group.arm-right {
+  transform-origin: 170px 26px;
+  animation: cr-swing-r 19s ease-in-out infinite alternate;
+}
+@keyframes cr-swing { from { transform: rotate(-2.5deg); } to { transform: rotate(3deg); } }
+@keyframes cr-swing-r { from { transform: rotate(2.5deg); } to { transform: rotate(-3deg); } }
+
+.skyline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: flex-end;
+  gap: 7px;
+  padding: 0 3%;
+  height: 140px;
+}
+.skyline span {
+  flex: 1;
+  height: var(--h, 70px);
+  background:
+    repeating-linear-gradient(0deg, rgba(239, 155, 82, 0.22) 0 3px, transparent 3px 11px),
+    #0d1526;
+  border-radius: 3px 3px 0 0;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.construction.built .skyline span { transform: scaleY(1); }
+.skyline span:nth-child(2)  { transition-delay: 0.08s; }
+.skyline span:nth-child(3)  { transition-delay: 0.16s; }
+.skyline span:nth-child(4)  { transition-delay: 0.24s; }
+.skyline span:nth-child(5)  { transition-delay: 0.32s; }
+.skyline span:nth-child(6)  { transition-delay: 0.4s; }
+.skyline span:nth-child(7)  { transition-delay: 0.48s; }
+.skyline span:nth-child(8)  { transition-delay: 0.56s; }
+.skyline span:nth-child(9)  { transition-delay: 0.64s; }
+.skyline span:nth-child(10) { transition-delay: 0.72s; }
+.skyline span:nth-child(11) { transition-delay: 0.8s; }
+.skyline span:nth-child(12) { transition-delay: 0.88s; }
+
+.construction-inner {
+  position: relative;
+  z-index: 1;
+  padding: 6.5rem 0 8.5rem;
+}
+.construction-copy { max-width: 580px; }
+.construction h2 { color: #f5f2ea; }
+.construction .grad { color: #ef9b52; }
+.construction-copy > p { color: rgba(237, 233, 225, 0.76); }
+
+.eyebrow-ondark {
+  color: #ef9b52;
+  background: rgba(224, 135, 60, 0.12);
+  border-color: rgba(224, 135, 60, 0.35);
+}
+
+.construction-grades {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 1.8rem 0 1.4rem;
+  flex-wrap: wrap;
+}
+.construction-grades li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 13px;
+  padding: 0.8rem 1.5rem;
+}
+.construction-grades strong {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ef9b52;
+}
+.construction-grades span { color: rgba(237, 233, 225, 0.65); font-size: 0.78rem; }
+
+.construction-works {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+.construction-works li {
+  font-size: 0.84rem;
+  color: rgba(237, 233, 225, 0.85);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 999px;
+  padding: 0.3rem 0.9rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cr-arm-group, .cr-arm-group.arm-right, .cr-light { animation: none; }
+  .skyline span { transform: scaleY(1); transition: none; }
+}
+
+@media (max-width: 820px) {
+  .crane-right { display: none; }
+  .crane-left { width: 56vw; top: 20px; }
+  .construction-inner { padding: 5rem 0 9rem; }
+  .skyline { height: 110px; }
 }

@@ -29,7 +29,7 @@ const header = document.querySelector(".site-header");
 const progressBar = document.getElementById("scrollProgress");
 const backToTop = document.getElementById("backToTop");
 
-function onScroll() {
+function chromeTick() {
   const y = window.scrollY;
   header.classList.toggle("scrolled", y > 10);
 
@@ -38,12 +38,81 @@ function onScroll() {
 
   backToTop.hidden = y < 600;
 }
-window.addEventListener("scroll", onScroll, { passive: true });
-onScroll();
 
 backToTop.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });
 });
+
+/* ============ Parallax: pictures float and fade as you scroll ============ */
+const parallaxEls = [...document.querySelectorAll("[data-parallax]")];
+
+function parallaxTick() {
+  if (prefersReducedMotion) return;
+  const vh = window.innerHeight;
+  parallaxEls.forEach((el) => {
+    const r = el.getBoundingClientRect();
+    if (r.bottom < -200 || r.top > vh + 200) return; // off-screen: skip
+    const rel = (r.top + r.height / 2 - vh / 2) / (vh / 2); // -1 top .. 1 bottom
+    const speed = parseFloat(el.dataset.parallax) || 0.5;
+    const rot = parseFloat(el.dataset.rot) || 0;
+    let t = `translateY(${(-rel * speed * 60).toFixed(1)}px)`;
+    if (rot) t += ` rotate(${(rel * rot).toFixed(2)}deg)`;
+    el.style.transform = t;
+    if (el.hasAttribute("data-fade")) {
+      el.style.opacity = Math.max(0, Math.min(1, 1.35 - Math.abs(rel) * 0.95)).toFixed(3);
+    }
+  });
+}
+
+/* ============ Scroll story: the guard stands watch ============ */
+const story = document.getElementById("story");
+const storyStage = story ? story.querySelector(".story-stage") : null;
+const storyGuard = document.getElementById("storyGuard");
+const storySteps = story ? [...story.querySelectorAll(".story-step")] : [];
+const storyDots = story ? [...story.querySelectorAll(".story-dots .dot")] : [];
+const storyDesktop = window.matchMedia("(min-width: 821px)");
+
+function storyTick() {
+  if (!story || !storyGuard) return;
+  if (prefersReducedMotion || !storyDesktop.matches) {
+    storyGuard.style.opacity = "";
+    storyGuard.style.transform = "";
+    return;
+  }
+
+  const rect = story.getBoundingClientRect();
+  const total = rect.height - window.innerHeight;
+  if (total <= 0) return;
+  const p = Math.min(Math.max(-rect.top / total, 0), 1);
+
+  // Guard slides in from the right, stands watch, eases out at the very end
+  const enter = Math.min(p * 5, 1);
+  const exit = p > 0.94 ? (p - 0.94) / 0.06 : 0;
+  storyGuard.style.opacity = (enter * (1 - exit * 0.9)).toFixed(3);
+  storyGuard.style.transform = `translateX(${((1 - enter) * 70).toFixed(1)}%)`;
+
+  // Which chapter of the story are we in?
+  const idx = p < 0.34 ? 0 : p < 0.68 ? 1 : 2;
+  storySteps.forEach((s, i) => s.classList.toggle("active", i === idx));
+  storyDots.forEach((d, i) => d.classList.toggle("active", i === idx));
+  if (storyStage) storyStage.className = "story-stage s" + idx;
+}
+
+/* ============ One rAF-throttled scroll loop for everything ============ */
+let ticking = false;
+function onScroll() {
+  if (ticking) return;
+  ticking = true;
+  requestAnimationFrame(() => {
+    chromeTick();
+    parallaxTick();
+    storyTick();
+    ticking = false;
+  });
+}
+window.addEventListener("scroll", onScroll, { passive: true });
+window.addEventListener("resize", onScroll, { passive: true });
+onScroll();
 
 /* ============ Observer-driven features (skipped gracefully if unsupported) ============ */
 if ("IntersectionObserver" in window) {
@@ -66,6 +135,23 @@ if ("IntersectionObserver" in window) {
     { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
   );
   document.querySelectorAll("[data-reveal]").forEach((el) => revealObserver.observe(el));
+
+  /* Construction scene: buildings rise when the section arrives */
+  const constructionSec = document.querySelector(".construction");
+  if (constructionSec) {
+    const buildObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            constructionSec.classList.add("built");
+            buildObserver.disconnect();
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+    buildObserver.observe(constructionSec);
+  }
 
   /* Animated stat counters */
   const counterObserver = new IntersectionObserver(
@@ -114,10 +200,12 @@ if ("IntersectionObserver" in window) {
   );
   sectionsById.forEach((s) => sectionObserver.observe(s));
 } else {
-  // No IntersectionObserver: show final counter values immediately.
+  // No IntersectionObserver: show final counter values and the skyline immediately.
   document.querySelectorAll("[data-count]").forEach((el) => {
     el.textContent = el.dataset.count;
   });
+  const constructionSec = document.querySelector(".construction");
+  if (constructionSec) constructionSec.classList.add("built");
 }
 
 /* ============ Card spotlight + subtle 3D tilt ============ */
@@ -130,8 +218,8 @@ document.querySelectorAll(".card, .record-card").forEach((card) => {
     card.style.setProperty("--my", y + "px");
 
     if (prefersReducedMotion) return;
-    const rx = ((y / rect.height) - 0.5) * -4;
-    const ry = ((x / rect.width) - 0.5) * 4;
+    const rx = (y / rect.height - 0.5) * -4;
+    const ry = (x / rect.width - 0.5) * 4;
     card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px)`;
   });
   card.addEventListener("mouseleave", () => {

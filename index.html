@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=7" />
+  <link rel="stylesheet" href="css/styles.css?v=8" />
   <meta name="theme-color" content="#faf8f3" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#10151f" media="(prefers-color-scheme: dark)" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🛡️</text></svg>" />
@@ -51,6 +51,7 @@
         <a href="#services">Services</a>
         <a href="#about">About</a>
         <a href="#track-record">Track Record</a>
+        <a href="#construction">Construction</a>
         <a href="#team">Our Team</a>
         <a href="#contact">Contact</a>
         <a href="#contact" class="btn btn-primary nav-cta">Get a Quote</a>
@@ -93,7 +94,7 @@
         </ul>
       </div>
 
-      <figure class="hero-media" data-reveal>
+      <figure class="hero-media" data-reveal data-parallax="0.35">
         <img src="images/team-solar-plant.png" alt="Sakula security team on duty at dusk at a solar plant in the Northern Cape" />
         <figcaption>Our guarding team on duty — Northern Cape solar plant</figcaption>
       </figure>
@@ -108,6 +109,57 @@
       <div class="trust-chip glass" data-reveal><strong>CIPC</strong><span>2015/332655/07</span></div>
       <div class="trust-chip glass" data-reveal><strong>VAT</strong><span>4310277779</span></div>
       <div class="trust-chip glass" data-reveal><strong>CIDB</strong><span>5CE · 6ME · 6GB</span></div>
+    </div>
+  </section>
+
+  <!-- ======= Scroll story: the guard stands watch ======= -->
+  <section class="story" id="story" aria-label="The Sakula story">
+    <div class="story-stage">
+      <div class="story-tint" aria-hidden="true"></div>
+      <div class="container story-layout">
+
+        <div class="story-steps">
+          <div class="story-step" data-step="0">
+            <p class="eyebrow">The Sakula Story</p>
+            <h2>We stand <span class="grad">guard</span></h2>
+            <p>Since 2015, from our home in Kutlwanong, Kimberley, Sakula officers have
+            stood watch over the Northern Cape — government facilities, solar farms,
+            construction sites and businesses. When everyone else goes home, our shift begins.</p>
+          </div>
+          <div class="story-step" data-step="1">
+            <p class="eyebrow">Our People</p>
+            <h2>Trained. Vetted. <span class="grad">Proud.</span></h2>
+            <p>Every officer is uniformed, trained and equipped — from the control-room
+            operator watching the cameras to the officer keeping the site register.
+            Our people are our strength, recruited and skilled up right here at home.</p>
+            <div class="story-floaters">
+              <img src="images/control-room.jpg" alt="Sakula operator monitoring CCTV feeds" class="floater f1" />
+              <img src="images/site-register.png" alt="Sakula officer completing the site register" class="floater f2" />
+            </div>
+          </div>
+          <div class="story-step" data-step="2">
+            <p class="eyebrow">Always On</p>
+            <h2>24/7, rain or <span class="grad">shine</span></h2>
+            <p>Day shift, night shift, weekends and holidays — patrol vehicles on the road,
+            radios on, cameras live. Protection isn't a promise we make once;
+            it's one we keep every hour of every day.</p>
+            <div class="story-floaters">
+              <img src="images/patrol-officers.png" alt="Sakula patrol officers with response vehicle" class="floater f3" />
+            </div>
+          </div>
+        </div>
+
+        <figure class="story-guard" id="storyGuard">
+          <img src="images/guard-radio.jpg" alt="Sakula security officer on post with two-way radio" />
+          <figcaption>On post. Radio on. Always reachable.</figcaption>
+        </figure>
+
+      </div>
+      <div class="story-dots" aria-hidden="true">
+        <span class="dot" data-dot="0"></span>
+        <span class="dot" data-dot="1"></span>
+        <span class="dot" data-dot="2"></span>
+      </div>
     </div>
   </section>
 
@@ -268,6 +320,70 @@
     </div>
   </section>
 
+  <!-- ======= Construction division — CIDB ======= -->
+  <section class="construction" id="construction">
+    <div class="construction-sky" aria-hidden="true">
+      <svg class="crane crane-left" viewBox="0 0 200 160" aria-hidden="true">
+        <line x1="30" y1="160" x2="30" y2="20" class="cr-mast"/>
+        <g class="cr-arm-group">
+          <line x1="30" y1="20" x2="170" y2="20" class="cr-arm"/>
+          <line x1="30" y1="20" x2="6" y2="34" class="cr-arm"/>
+          <line x1="30" y1="42" x2="96" y2="20" class="cr-tie"/>
+          <line x1="30" y1="42" x2="150" y2="20" class="cr-tie"/>
+          <line x1="140" y1="20" x2="140" y2="66" class="cr-cable"/>
+          <rect x="132" y="66" width="16" height="12" class="cr-load"/>
+        </g>
+        <circle cx="30" cy="16" r="3" class="cr-light"/>
+      </svg>
+      <svg class="crane crane-right" viewBox="0 0 200 160" aria-hidden="true">
+        <line x1="170" y1="160" x2="170" y2="26" class="cr-mast"/>
+        <g class="cr-arm-group arm-right">
+          <line x1="170" y1="26" x2="30" y2="26" class="cr-arm"/>
+          <line x1="170" y1="26" x2="194" y2="40" class="cr-arm"/>
+          <line x1="170" y1="48" x2="104" y2="26" class="cr-tie"/>
+          <line x1="170" y1="48" x2="54" y2="26" class="cr-tie"/>
+          <line x1="62" y1="26" x2="62" y2="80" class="cr-cable"/>
+          <rect x="54" y="80" width="16" height="12" class="cr-load"/>
+        </g>
+        <circle cx="170" cy="22" r="3" class="cr-light"/>
+      </svg>
+      <div class="skyline" id="skyline">
+        <span style="--h:52px"></span><span style="--h:88px"></span><span style="--h:64px"></span>
+        <span style="--h:112px"></span><span style="--h:76px"></span><span style="--h:128px"></span>
+        <span style="--h:58px"></span><span style="--h:96px"></span><span style="--h:70px"></span>
+        <span style="--h:104px"></span><span style="--h:60px"></span><span style="--h:84px"></span>
+      </div>
+    </div>
+
+    <div class="hazard-stripe" aria-hidden="true"></div>
+
+    <div class="container construction-inner">
+      <div class="construction-copy" data-reveal>
+        <p class="eyebrow eyebrow-ondark">Construction Division · CIDB Graded</p>
+        <h2>We don't only guard sites.<br /><span class="grad">We build them.</span></h2>
+        <p>
+          Sakula's CIDB-graded construction division has delivered road regraveling and paving,
+          low-cost housing, renovations and industrial air-conditioning installations across the
+          Northern Cape and Free State — including R3.8m of road works for the Pixley Ka Seme
+          District and street paving in Richmond.
+        </p>
+        <ul class="construction-grades" data-reveal-group>
+          <li data-reveal><strong>5CE</strong><span>Civil Engineering</span></li>
+          <li data-reveal><strong>6ME</strong><span>Mechanical Engineering</span></li>
+          <li data-reveal><strong>6GB</strong><span>General Building</span></li>
+        </ul>
+        <ul class="construction-works">
+          <li>Road regraveling &amp; resurfacing</li>
+          <li>Street &amp; internal paving</li>
+          <li>Low-cost housing</li>
+          <li>Renovations &amp; roofing</li>
+          <li>Industrial air-conditioning</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Discuss a Project</a>
+      </div>
+    </div>
+  </section>
+
   <!-- ======= Team / gallery ======= -->
   <section class="section" id="team">
     <div class="container">
@@ -276,24 +392,24 @@
         <h2>Our people <span class="grad">on duty</span></h2>
         <p class="section-sub">Uniformed, trained and equipped — Sakula officers at work on real sites. Click a photo to enlarge.</p>
       </div>
-      <div class="gallery" id="gallery" data-reveal-group>
-        <figure class="gallery-item wide" data-reveal>
+      <div class="gallery" id="gallery">
+        <figure class="gallery-item wide" data-parallax="0.5" data-rot="-1.2" data-fade>
           <img src="images/team-solar-plant.png" alt="Sakula security team on site at a Northern Cape solar plant" loading="lazy" />
           <figcaption>Guarding team on duty at a solar plant</figcaption>
         </figure>
-        <figure class="gallery-item" data-reveal>
+        <figure class="gallery-item" data-parallax="1.1" data-rot="1.6" data-fade>
           <img src="images/control-room.jpg" alt="Sakula operator monitoring CCTV feeds in a control room" loading="lazy" />
           <figcaption>24-hour CCTV control room monitoring</figcaption>
         </figure>
-        <figure class="gallery-item" data-reveal>
+        <figure class="gallery-item" data-parallax="0.7" data-rot="-1.4" data-fade>
           <img src="images/site-register.png" alt="Sakula officer completing the site occurrence register" loading="lazy" />
           <figcaption>Site registers and incident reporting</figcaption>
         </figure>
-        <figure class="gallery-item" data-reveal>
+        <figure class="gallery-item" data-parallax="1.0" data-rot="1.2" data-fade>
           <img src="images/patrol-officers.png" alt="Two Sakula officers with a patrol vehicle" loading="lazy" />
           <figcaption>Mobile patrol officers and response vehicle</figcaption>
         </figure>
-        <figure class="gallery-item" data-reveal>
+        <figure class="gallery-item" data-parallax="0.6" data-rot="-0.8" data-fade>
           <img src="images/cctv-operator.png" alt="Sakula control room operator at a monitoring workstation" loading="lazy" />
           <figcaption>Trained control room operators</figcaption>
         </figure>
@@ -389,12 +505,12 @@
         <span class="brand-mark">
           <svg viewBox="0 0 48 48" width="26" height="26" aria-hidden="true">
             <circle cx="23" cy="27" r="15" fill="url(#brandGrad)"/>
-            <g fill="#f6f8fc">
+            <g fill="#faf8f3">
               <rect x="4" y="16" width="26" height="3.4" rx="1.2" transform="rotate(-38 17 18)"/>
               <rect x="6" y="22" width="26" height="3.4" rx="1.2" transform="rotate(-38 19 24)"/>
               <rect x="8" y="28" width="26" height="3.4" rx="1.2" transform="rotate(-38 21 30)"/>
             </g>
-            <path d="M36 6 L40 4 L30 34 L26 28 Z" fill="url(#brandGrad)"/>
+            <path d="M36 6 L40 4 L30 34 L26 28 Z" fill="#bd5f1d"/>
           </svg>
         </span>
         <span><strong>Sakula</strong> General Trading</span>
@@ -403,6 +519,7 @@
         <a href="#services">Services</a>
         <a href="#about">About</a>
         <a href="#track-record">Track Record</a>
+        <a href="#construction">Construction</a>
         <a href="#team">Our Team</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -423,6 +540,6 @@
 
   <button class="back-to-top" id="backToTop" aria-label="Back to top" hidden>&#8593;</button>
 
-  <script src="js/main.js?v=7"></script>
+  <script src="js/main.js?v=8"></script>
 </body>
 </html>
