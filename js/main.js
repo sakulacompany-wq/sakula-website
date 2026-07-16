@@ -303,5 +303,43 @@ form.addEventListener("submit", (e) => {
   note.hidden = false;
 });
 
+/* ============ Careers application form: opens a pre-filled email ============ */
+const applyForm = document.getElementById("applyForm");
+const applyNote = document.getElementById("applyNote");
+
+if (applyForm) {
+  applyForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    if (!applyForm.reportValidity()) return;
+
+    const data = new FormData(applyForm);
+    const subject = `Job application — ${data.get("position")} — ${data.get("name")}`;
+    const body = [
+      `Full name: ${data.get("name")}`,
+      `Phone: ${data.get("phone")}`,
+      `Email: ${data.get("email")}`,
+      `Position applied for: ${data.get("position")}`,
+      `PSIRA grade: ${data.get("psira") || "-"}`,
+      `Town/City: ${data.get("town") || "-"}`,
+      `Years of experience: ${data.get("experience") || "-"}`,
+      "",
+      "About me:",
+      data.get("message") || "-",
+      "",
+      "(Please remember to attach your CV, certified ID copy and PSIRA certificate.)",
+    ].join("\n");
+
+    window.location.href =
+      "mailto:sakula.company@gmail.com" +
+      `?subject=${encodeURIComponent(subject)}` +
+      `&body=${encodeURIComponent(body)}`;
+
+    applyNote.textContent =
+      "Your email app should open with your application pre-filled. Attach your CV and documents, then press send. If nothing opens, email us at sakula.company@gmail.com.";
+    applyNote.hidden = false;
+  });
+}
+
 /* ============ Footer year ============ */
 document.getElementById("year").textContent = new Date().getFullYear();

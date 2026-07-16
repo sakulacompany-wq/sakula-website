@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=8" />
+  <link rel="stylesheet" href="css/styles.css?v=9" />
   <meta name="theme-color" content="#faf8f3" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#10151f" media="(prefers-color-scheme: dark)" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🛡️</text></svg>" />
@@ -53,6 +53,7 @@
         <a href="#track-record">Track Record</a>
         <a href="#construction">Construction</a>
         <a href="#team">Our Team</a>
+        <a href="#careers">Careers</a>
         <a href="#contact">Contact</a>
         <a href="#contact" class="btn btn-primary nav-cta">Get a Quote</a>
       </nav>
@@ -417,6 +418,101 @@
     </div>
   </section>
 
+  <!-- ======= Careers ======= -->
+  <section class="section" id="careers">
+    <div class="container split">
+      <div data-reveal>
+        <p class="eyebrow">Careers</p>
+        <h2>Join the Sakula <span class="grad">team</span></h2>
+        <p>
+          We are always looking for disciplined, reliable people to grow with us —
+          security officers, control room operators, patrol drivers and construction
+          workers. Sakula takes a leading role in recruiting and training people from
+          our own communities.
+        </p>
+        <ul class="feature-list careers-points" data-reveal-group>
+          <li class="glass" data-reveal>
+            <strong>Who we're looking for</strong>
+            PSIRA-registered security officers (Grades E–A) — or candidates willing to
+            complete PSIRA registration and training.
+          </li>
+          <li class="glass" data-reveal>
+            <strong>What you'll need</strong>
+            A certified ID copy, your CV, your PSIRA certificate (if registered), and
+            contactable references.
+          </li>
+          <li class="glass" data-reveal>
+            <strong>How it works</strong>
+            Fill in the form — it opens an email to us with your details. Attach your CV
+            and documents to that email before pressing send. We reply to shortlisted
+            candidates within two weeks.
+          </li>
+        </ul>
+      </div>
+
+      <form class="contact-form glass" id="applyForm" novalidate data-reveal>
+        <h3 class="form-title">Guard Application</h3>
+        <div class="form-row">
+          <label>
+            Full Name
+            <input type="text" name="name" placeholder="Your full name" required />
+          </label>
+          <label>
+            Phone
+            <input type="tel" name="phone" placeholder="Your phone number" required />
+          </label>
+        </div>
+        <label>
+          Email
+          <input type="email" name="email" placeholder="you@example.com" required />
+        </label>
+        <div class="form-row">
+          <label>
+            Position
+            <select name="position" required>
+              <option value="">Select a position…</option>
+              <option>Security Officer</option>
+              <option>Control Room Operator</option>
+              <option>Patrol Driver</option>
+              <option>Site Supervisor</option>
+              <option>Construction Worker</option>
+              <option>Other</option>
+            </select>
+          </label>
+          <label>
+            PSIRA Grade
+            <select name="psira">
+              <option value="">Select…</option>
+              <option>Grade A</option>
+              <option>Grade B</option>
+              <option>Grade C</option>
+              <option>Grade D</option>
+              <option>Grade E</option>
+              <option>Not yet registered</option>
+            </select>
+          </label>
+        </div>
+        <div class="form-row">
+          <label>
+            Town / City
+            <input type="text" name="town" placeholder="e.g. Kimberley" />
+          </label>
+          <label>
+            Years of Experience
+            <input type="number" name="experience" min="0" max="50" placeholder="e.g. 3" />
+          </label>
+        </div>
+        <label>
+          Tell us about yourself
+          <textarea name="message" rows="3" placeholder="Your experience, availability, and anything else we should know…"></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary btn-block">Apply Now</button>
+        <p class="form-hint">The form opens an email to us — attach your CV and PSIRA certificate before sending.</p>
+        <p class="form-note" id="applyNote" hidden></p>
+      </form>
+    </div>
+  </section>
+
   <!-- ======= CTA banner ======= -->
   <section class="cta-banner">
     <div class="cta-glow" aria-hidden="true"></div>
@@ -521,6 +617,7 @@
         <a href="#track-record">Track Record</a>
         <a href="#construction">Construction</a>
         <a href="#team">Our Team</a>
+        <a href="#careers">Careers</a>
         <a href="#contact">Contact</a>
       </nav>
       <p class="footer-copy">© <span id="year"></span> Sakula General Trading (Pty) Ltd · Kimberley, Northern Cape · PSIRA Reg No. 3200738</p>
@@ -540,6 +637,6 @@
 
   <button class="back-to-top" id="backToTop" aria-label="Back to top" hidden>&#8593;</button>
 
-  <script src="js/main.js?v=8"></script>
+  <script src="js/main.js?v=9"></script>
 </body>
 </html>
